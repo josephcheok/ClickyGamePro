@@ -1,19 +1,29 @@
-# Clicky-Game (React.js)
+# Create React Express App
 
-### About
+## About This Boilerplate
 
-- <mark style="background-color: lightblue">CLICKY-GAME</mark> is a memory game built with <mark style="background-color: lightblue">React.js</mark> The goal of the game is simple, using your mouse, <mark style="background-color: lightblue">CLICK</mark> each of the 9 superman and 9 batman character cards in whatever order you chose - the order does not matter, only that you do not click the same card twice!
+This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
-- <mark style="background-color: lightblue">EACH</mark> click triggers the board of cards to reshuffle, thus, you cannot simply click the cards in the order in which they appear on screen.
+The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
-- <mark style="background-color: lightblue">COUNTERS</mark> displayed to the top right panel keep track of your current as well as top score.
+## Starting the app locally
 
-- <mark style="background-color: lightblue">CLICK</mark> your way to a very special effect at the end of the game!
+Start by installing front and backend dependencies. While in this directory, run the following command:
 
-### Summary
+```
+npm install
+```
 
-<mark style="background-color: lightblue">CLICKY-GAME</mark> is built with <mark style="background-color: lightblue">React.js</mark>. Thus, the application is component based, able to keeps track of change events using <mark style="background-color: lightblue">state</mark>, and updates to the page render dynamically and without page refresh.
+This should install node modules within the server and the client folder.
 
-### Deployment
+After both installations complete, run the following command in your terminal:
 
-[Play CLICKY GAME!](https://clickygamepro.herokuapp.com/)
+```
+npm start
+```
+
+Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+
+## Deployment (Heroku)
+
+To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
