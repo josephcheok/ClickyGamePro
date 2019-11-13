@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Facebook from "./components/Facebook";
 import Card from "./components/Card";
 import Panel from "./components/Panel";
 import superbats from "./superbats.json";
@@ -102,6 +103,7 @@ class App extends React.Component {
             onMouseLeave={this.onMouseLeave}
           />
         </div>
+        <Facebook />
       </div>
     );
   }
