@@ -1,24 +1,28 @@
 import React, { Component } from "react";
-import FacebookLogin from "react-facebook-login";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 
 export default class Facebook extends Component {
-  state = { isLoggedin: false, userID: "", name: "", email: "", picture: "" };
+  state = { isLoggedIn: false, userID: "", name: "", email: "", picture: "" };
 
   responseFacebook = response => {
-    console.log(response);
-    this.setState({
-      isLoggedin: true,
-      userID: response.userID,
-      name: response.name,
-      email: response.email,
-      picture: response.picture.data.url
-    });
+    if (response.status === "unknown") {
+      console.log(response);
+    } else {
+      this.setState({
+        isLoggedIn: true,
+        userID: response.userID,
+        name: response.name,
+        email: response.email,
+        picture: response.picture.data.url
+      });
+    }
   };
 
   componentClicked = () => console.log("clicked");
 
   render() {
     let fbContent;
+    console.log("IsLoggedIn?:", this.state.isLoggedIn);
 
     if (this.state.isLoggedIn) {
       fbContent = (
@@ -41,8 +45,10 @@ export default class Facebook extends Component {
           appId="971239003231359"
           autoLoad={true}
           fields="name,email,picture"
-          onClick={this.componentClicked}
           callback={this.responseFacebook}
+          render={renderProps => (
+            <button onClick={renderProps.onClick}>PLAY</button>
+          )}
         />
       );
     }

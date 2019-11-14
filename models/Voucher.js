@@ -23,15 +23,15 @@ var VoucherSchema = new Schema({
   },
 
   displayed: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
 
-  gamer: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Gamer"
-    }
-  ]
+  gamer: {
+    type: Schema.Types.ObjectId,
+    ref: "Gamer"
+  }
+
   // `body` is of type String
 });
 

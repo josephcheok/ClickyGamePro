@@ -1,0 +1,9 @@
+h5 {
+  font-weight: 600;
+  display: inline-block;
+}
+
+.headline {
+  position: absolute;
+  top: 0;
+}

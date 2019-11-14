@@ -17,6 +17,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Connect to the Mongo DB
+var MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/ClickyGamePro";
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
+
 // Define API routes here
 const routes = require("./controllers/gamerController");
 app.use(routes);

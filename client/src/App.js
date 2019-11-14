@@ -1,8 +1,11 @@
 import React from "react";
 import "./App.css";
-import Facebook from "./components/Facebook";
-import Card from "./components/Card";
+
+import Headlines from "./components/Headlines";
 import Panel from "./components/Panel";
+import Card from "./components/Card";
+import Footer from "./components/Footer";
+import Facebook from "./components/Facebook";
 import superbats from "./superbats.json";
 import poster from "./poster.json";
 
@@ -91,18 +94,19 @@ class App extends React.Component {
       <div className="App">
         <header className="custom-header"></header>
         <div className="App-header">
+          <Headlines />
           <Panel newState={this.state} />
-
           <br></br>
           <Card
             arrayName={
-              this.state.score === 18 ? this.state.poster : this.state.superbats
+              this.state.score === 2 ? this.state.poster : this.state.superbats
             }
             handleClick={this.handleClick}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
           />
         </div>
+        <Footer />
         <Facebook />
       </div>
     );
