@@ -106,7 +106,7 @@ class App extends React.Component {
             onMouseLeave={this.onMouseLeave}
           />
         </div>
-        <Footer />
+        <Footer score={this.state.score} />
       </div>
     );
   }
