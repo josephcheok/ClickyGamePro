@@ -26,18 +26,7 @@ export default class Facebook extends Component {
 
     if (this.state.isLoggedIn) {
       fbContent = (
-        <div
-          style={{
-            width: "400px",
-            margin: "auto",
-            background: "#f4f4f4",
-            padding: "20px"
-          }}
-        >
-          <img src={this.state.picture} alt={this.state.name} />
-          <h2>Welcome {this.state.name}</h2>
-          Email: {this.state.email}
-        </div>
+        <img src={this.state.picture} alt={this.state.name} align="right" />
       );
     } else {
       fbContent = (
@@ -52,6 +41,6 @@ export default class Facebook extends Component {
         />
       );
     }
-    return <div>{fbContent}</div>;
+    return <div className="FBlogin">{fbContent}</div>;
   }
 }

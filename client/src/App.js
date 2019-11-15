@@ -5,7 +5,7 @@ import Headlines from "./components/Headlines";
 import Panel from "./components/Panel";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
-import Facebook from "./components/Facebook";
+
 import superbats from "./superbats.json";
 import poster from "./poster.json";
 
@@ -107,7 +107,6 @@ class App extends React.Component {
           />
         </div>
         <Footer />
-        <Facebook />
       </div>
     );
   }

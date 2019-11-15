@@ -3,7 +3,17 @@ h5 {
   display: inline-block;
 }
 
-.headline {
+.flexContainer {
   position: absolute;
   top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  width: 100vw;
+}
+
+.headlines {
+  flex: 40;
+  padding-left: 40px;
 }

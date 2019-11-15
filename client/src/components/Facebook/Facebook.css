@@ -1,8 +1,4 @@
 .FBlogin {
-  width: 40px;
-  height: auto;
-  position: absolute;
-  top: 0;
-  float: right;
-  z-index: 99;
+  flex: 1;
+  margin-right: 50px;
 }
