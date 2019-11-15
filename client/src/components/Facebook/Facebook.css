@@ -1,6 +1,7 @@
 .FBlogin {
   flex: 1;
   margin-right: 50px;
+  margin-top: 14px;
 }
 
 .FBlogo {
@@ -22,4 +23,6 @@ button:hover {
 
 button:hover .FBlogo {
   border: solid black 1.5px;
+  width: 48.5px;
+  height: 48.5px;
 }
