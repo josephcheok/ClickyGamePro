@@ -7,7 +7,6 @@
   box-sizing: border-box;
   width: 50px;
   height: 50px;
-  background: transparent;
 }
 
 button {
@@ -17,10 +16,10 @@ button {
 
 button:hover {
   cursor: pointer;
-  border: solid lightgray 3px;
-  padding: 0 5px;
+  border: solid darkgray 2.5px;
+  padding: 0.5 5.5px;
 }
 
 button:hover .FBlogo {
-  border: solid black 2px;
+  border: solid black 1.5px;
 }
