@@ -36,7 +36,9 @@ export default class Facebook extends Component {
           fields="name,email,picture"
           callback={this.responseFacebook}
           render={renderProps => (
-            <button onClick={renderProps.onClick}>PLAY</button>
+            <button onClick={renderProps.onClick}>
+              <img className="FBlogo" src="./images/FBlogo.png" />
+            </button>
           )}
         />
       );

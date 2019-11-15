@@ -2,3 +2,25 @@
   flex: 1;
   margin-right: 50px;
 }
+
+.FBlogo {
+  box-sizing: border-box;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+}
+
+button {
+  box-sizing: border-box;
+  background: transparent;
+}
+
+button:hover {
+  cursor: pointer;
+  border: solid lightgray 3px;
+  padding: 0 5px;
+}
+
+button:hover .FBlogo {
+  border: solid black 2px;
+}
