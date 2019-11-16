@@ -5,7 +5,9 @@ import "../Formfill/Formfill.css";
 
 const Footer = props =>
   props.score === 2 ? (
-    <Formfill />
+    <div className="footer">
+      <Formfill />
+    </div>
   ) : (
     <div className="footer">
       <h5>
