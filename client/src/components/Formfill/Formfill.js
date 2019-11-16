@@ -36,10 +36,9 @@ class Formfill extends React.Component {
         this.setState({
           name: "",
           state: "",
-          email: "",
-          score: 0,
-          time: 0
+          email: ""
         });
+        this.props.reset();
       });
   };
 

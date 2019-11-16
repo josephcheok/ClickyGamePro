@@ -4,9 +4,9 @@ import "./Footer.css";
 import "../Formfill/Formfill.css";
 
 const Footer = props =>
-  props.score === 2 ? (
+  props.ended ? (
     <div className="footer">
-      <Formfill score={props.score} time={props.time} />
+      <Formfill score={props.score} time={props.time} reset={props.reset} />
     </div>
   ) : (
     <div className="footer">

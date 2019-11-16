@@ -1,8 +1,6 @@
 import React from "react";
 import "./App.css";
 
-import Moment from "react-moment";
-
 import Headlines from "./components/Headlines";
 import Panel from "./components/Panel";
 import Card from "./components/Card";
@@ -43,14 +41,15 @@ class App extends React.Component {
     completionTime: 0,
     actor: "",
     show: "",
-    released: ""
+    released: "",
+    endGame: false
   };
 
   reset = () => {
     this.state.superbats.forEach(superbat => {
       superbat.clicked = false;
     });
-    this.setState({ score: 0 });
+    this.setState({ score: 0, endGame: false, startTime: 0, endTime: 0 });
   };
 
   onMouseEnter = id => {
@@ -71,26 +70,30 @@ class App extends React.Component {
   };
 
   handleClick = id => {
-    let doubleClicked = false;
     let newScore = this.state.score + 1; //this doesn't alter state.score
 
     this.state.superbats.forEach(superbat => {
       if (superbat.id === id) {
-        if (superbat.clicked) {
-          doubleClicked = true;
-          // let finishTime = new Date();
-          // let endTime = finishTime.getTime();
-          // console.log("Finish: ", finishTime);
-          // console.log("End: ", endTime);
-          // this.setState({ endTime: finishTime });
-          // let timeDiff = (
-          //   <Moment duration={this.state.startTime} date={this.state.endTime} />
-          // );
-          // let timeDiff = Moment.duration(
-          //   this.state.endTime.diff(this.state.startTime)
-          // );
-
-          this.reset();
+        if (superbat.clicked || newScore === 18) {
+          let finishTime = new Date();
+          let endTime = finishTime.getTime();
+          this.setState(
+            {
+              endTime: endTime
+            },
+            () => {
+              this.setState({
+                completionTime: Math.round(
+                  (this.state.endTime - this.state.startTime) / 1000
+                ),
+                score: newScore,
+                endGame: true
+              });
+            }
+          );
+          if (newScore > this.state.topScore) {
+            this.setState({ topScore: newScore }); //intentionally altered so that topScore remains
+          }
         } else {
           superbat.clicked = true;
           this.setState({ score: newScore }, () => {
@@ -100,20 +103,6 @@ class App extends React.Component {
               // console.log("Begin: ", beginTime);
               // console.log("Start: ", startTime);
               this.setState({ startTime: startTime });
-            } else {
-              let finishTime = new Date();
-              let endTime = finishTime.getTime();
-
-              this.setState(
-                {
-                  endTime: endTime
-                },
-                () => {
-                  this.setState({
-                    completionTime: this.state.endTime - this.state.startTime
-                  });
-                }
-              );
             }
           });
           if (newScore > this.state.topScore) {
@@ -138,14 +127,19 @@ class App extends React.Component {
           <br></br>
           <Card
             arrayName={
-              this.state.score === 2 ? this.state.poster : this.state.superbats
+              this.state.endGame ? this.state.poster : this.state.superbats
             }
             handleClick={this.handleClick}
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
           />
         </div>
-        <Footer score={this.state.score} time={this.state.completionTime} />
+        <Footer
+          score={this.state.score}
+          time={this.state.completionTime}
+          ended={this.state.endGame}
+          reset={this.reset}
+        />
         {this.state.startTime}
         <div>{this.state.endTime}</div>
       </div>
