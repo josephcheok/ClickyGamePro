@@ -29,7 +29,14 @@ var GamerSchema = new Schema(
       },
       required: [true, "Email required"]
     },
-
+    score: {
+      type: Number,
+      required: true
+    },
+    time: {
+      type: Number,
+      required: true
+    },
     // `voucher` is an object that stores a Voucher id
     // The ref property links the VoucherId to the Gamer model
     // This allows us to populate the Gamer with an associated Voucher

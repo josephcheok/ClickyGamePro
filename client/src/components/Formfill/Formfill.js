@@ -26,7 +26,9 @@ class Formfill extends React.Component {
       .post("/winner", {
         name: this.state.name,
         state: this.state.state,
-        email: this.state.email
+        email: this.state.email,
+        score: this.props.score,
+        time: this.props.time
       })
       .then(response => {
         console.log("Winner Saved! :", response);
@@ -34,7 +36,9 @@ class Formfill extends React.Component {
         this.setState({
           name: "",
           state: "",
-          email: ""
+          email: "",
+          score: 0,
+          time: 0
         });
       });
   };

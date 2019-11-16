@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+import Moment from "react-moment";
+
 import Headlines from "./components/Headlines";
 import Panel from "./components/Panel";
 import Card from "./components/Card";
@@ -36,6 +38,9 @@ class App extends React.Component {
     poster: poster,
     score: 0,
     topScore: 0,
+    startTime: 0,
+    endTime: 0,
+    completionTime: 0,
     actor: "",
     show: "",
     released: ""
@@ -73,10 +78,44 @@ class App extends React.Component {
       if (superbat.id === id) {
         if (superbat.clicked) {
           doubleClicked = true;
+          // let finishTime = new Date();
+          // let endTime = finishTime.getTime();
+          // console.log("Finish: ", finishTime);
+          // console.log("End: ", endTime);
+          // this.setState({ endTime: finishTime });
+          // let timeDiff = (
+          //   <Moment duration={this.state.startTime} date={this.state.endTime} />
+          // );
+          // let timeDiff = Moment.duration(
+          //   this.state.endTime.diff(this.state.startTime)
+          // );
+
           this.reset();
         } else {
           superbat.clicked = true;
-          this.setState({ score: newScore });
+          this.setState({ score: newScore }, () => {
+            if (this.state.score === 1) {
+              let beginTime = new Date();
+              let startTime = beginTime.getTime();
+              // console.log("Begin: ", beginTime);
+              // console.log("Start: ", startTime);
+              this.setState({ startTime: startTime });
+            } else {
+              let finishTime = new Date();
+              let endTime = finishTime.getTime();
+
+              this.setState(
+                {
+                  endTime: endTime
+                },
+                () => {
+                  this.setState({
+                    completionTime: this.state.endTime - this.state.startTime
+                  });
+                }
+              );
+            }
+          });
           if (newScore > this.state.topScore) {
             this.setState({ topScore: newScore }); //intentionally altered so that topScore remains
           }
@@ -106,7 +145,9 @@ class App extends React.Component {
             onMouseLeave={this.onMouseLeave}
           />
         </div>
-        <Footer score={this.state.score} />
+        <Footer score={this.state.score} time={this.state.completionTime} />
+        {this.state.startTime}
+        <div>{this.state.endTime}</div>
       </div>
     );
   }

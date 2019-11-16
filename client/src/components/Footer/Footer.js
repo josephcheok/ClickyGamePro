@@ -6,7 +6,7 @@ import "../Formfill/Formfill.css";
 const Footer = props =>
   props.score === 2 ? (
     <div className="footer">
-      <Formfill />
+      <Formfill score={props.score} time={props.time} />
     </div>
   ) : (
     <div className="footer">
