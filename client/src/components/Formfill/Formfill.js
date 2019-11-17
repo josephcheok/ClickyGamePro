@@ -57,7 +57,7 @@ class Formfill extends React.Component {
     return (
       <div>
         <form className="form-inline" action="/action_page.php">
-          <label for="name" style={{ "margin-left": 50 }}>
+          <label htmlFor="name" style={{ marginLeft: 50 }}>
             NAME:
           </label>
           <input
@@ -69,7 +69,7 @@ class Formfill extends React.Component {
             onChange={this.handleInputChange}
             style={{ width: 300 }}
           />
-          <label for="state">STATE:</label>
+          <label htmlFor="state">STATE:</label>
           <input
             type="text"
             id="state"
@@ -79,7 +79,7 @@ class Formfill extends React.Component {
             onChange={this.handleInputChange}
             style={{ width: 100 }}
           />
-          <label for="email">EMAIL:</label>
+          <label htmlFor="email">EMAIL:</label>
           <input
             type="email"
             id="email"
@@ -91,7 +91,7 @@ class Formfill extends React.Component {
           />
           <button
             type="submit"
-            style={{ "margin-right": 50 }}
+            style={{ marginRight: 50 }}
             onClick={this.handleFormSubmit}
           >
             Submit
