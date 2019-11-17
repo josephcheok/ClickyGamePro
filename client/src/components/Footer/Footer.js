@@ -6,7 +6,13 @@ import "../Formfill/Formfill.css";
 const Footer = props =>
   props.ended ? (
     <div className="footer">
-      <Formfill score={props.score} time={props.time} reset={props.reset} />
+      <Formfill
+        score={props.score}
+        time={props.time}
+        reset={props.reset}
+        modal={props.modal}
+        dataSave={props.dataSave}
+      />
     </div>
   ) : (
     <div className="footer">

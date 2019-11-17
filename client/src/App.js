@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
 
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+
 import Headlines from "./components/Headlines";
 import Panel from "./components/Panel";
 import Card from "./components/Card";
 import Footer from "./components/Footer";
+import Scoreboard from "./components/Scoreboard";
 
 import superbats from "./superbats.json";
 import poster from "./poster.json";
@@ -30,6 +35,29 @@ function shuffle(array) {
   return array;
 }
 
+function Applet(props) {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+    <ButtonToolbar>
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        {props.dataSaved ? (
+          <span> Launch Batman {props.score} </span>
+        ) : (
+          <span> Launch Superman </span>
+        )}
+      </Button>
+
+      <Scoreboard
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        reset={props.reset}
+        score={props.score}
+      />
+    </ButtonToolbar>
+  );
+}
+
 class App extends React.Component {
   state = {
     superbats: shuffle(superbats),
@@ -42,14 +70,25 @@ class App extends React.Component {
     actor: "",
     show: "",
     released: "",
-    endGame: false
+    endGame: false,
+    dataSaved: false
   };
 
   reset = () => {
     this.state.superbats.forEach(superbat => {
       superbat.clicked = false;
     });
-    this.setState({ score: 0, endGame: false, startTime: 0, endTime: 0 });
+    this.setState({
+      score: 0,
+      endGame: false,
+      startTime: 0,
+      endTime: 0,
+      dataSaved: false
+    });
+  };
+
+  dataSave = () => {
+    this.setState({ dataSaved: true });
   };
 
   onMouseEnter = id => {
@@ -100,8 +139,7 @@ class App extends React.Component {
             if (this.state.score === 1) {
               let beginTime = new Date();
               let startTime = beginTime.getTime();
-              // console.log("Begin: ", beginTime);
-              // console.log("Start: ", startTime);
+
               this.setState({ startTime: startTime });
             }
           });
@@ -139,9 +177,15 @@ class App extends React.Component {
           time={this.state.completionTime}
           ended={this.state.endGame}
           reset={this.reset}
+          dataSave={this.dataSave}
         />
         {this.state.startTime}
         <div>{this.state.endTime}</div>
+        <Applet
+          score={this.state.score}
+          dataSaved={this.state.dataSaved}
+          reset={this.reset}
+        />
       </div>
     );
   }
