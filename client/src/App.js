@@ -113,7 +113,7 @@ class App extends React.Component {
 
     this.state.superbats.forEach(superbat => {
       if (superbat.id === id) {
-        if (superbat.clicked || newScore === 18) {
+        if (superbat.clicked) {
           let finishTime = new Date();
           let endTime = finishTime.getTime();
           this.setState(
@@ -125,13 +125,12 @@ class App extends React.Component {
                 completionTime: Math.round(
                   (this.state.endTime - this.state.startTime) / 1000
                 ),
-                score: newScore,
                 endGame: true
               });
             }
           );
-          if (newScore > this.state.topScore) {
-            this.setState({ topScore: newScore }); //intentionally altered so that topScore remains
+          if (this.state.score > this.state.topScore) {
+            this.setState({ topScore: this.state.score }); //intentionally altered so that topScore remains
           }
         } else {
           superbat.clicked = true;
@@ -145,6 +144,23 @@ class App extends React.Component {
           });
           if (newScore > this.state.topScore) {
             this.setState({ topScore: newScore }); //intentionally altered so that topScore remains
+          }
+          if (newScore === 18) {
+            let finishTime = new Date();
+            let endTime = finishTime.getTime();
+            this.setState(
+              {
+                endTime: endTime
+              },
+              () => {
+                this.setState({
+                  completionTime: Math.round(
+                    (this.state.endTime - this.state.startTime) / 1000
+                  ),
+                  endGame: true
+                });
+              }
+            );
           }
         }
       }
