@@ -29,4 +29,15 @@ router.post("/winner", function(req, res) {
   });
 });
 
+router.get("/scoreboard", function(req, res) {
+  db.Gamer.find({})
+    .then(function(dbGamer) {
+      res.json(dbGamer);
+      console.log(dbGamer);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+});
+
 module.exports = router;
