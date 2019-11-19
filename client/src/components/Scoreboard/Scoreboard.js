@@ -17,11 +17,26 @@ const Scoreboard = props => {
         <Modal.Title id="contained-modal-title-vcenter">SCOREBOARD</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
-          <span className="scorer">Name: {props.name}</span>
-          <span className="scorer">Score: {props.score}</span>
-          <span className="scorer">Time: {props.time}</span>
-        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Score</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.arrayName.map(n => {
+              return (
+                <tr key={n.id} id={n.id}>
+                  <td>{n.name}</td>
+                  <td>{n.score}</td>
+                  <td>{n.time}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </Modal.Body>
       <Modal.Footer>
         <Button

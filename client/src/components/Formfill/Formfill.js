@@ -42,9 +42,6 @@ class Formfill extends React.Component {
         });
         this.props.dataSave();
         this.props.callData();
-      })
-      .then(() => {
-        this.props.showModal();
       });
   };
 

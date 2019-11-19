@@ -163,6 +163,7 @@ class App extends React.Component {
         console.log(response);
         this.setState({ scorelist: response.data });
       })
+      .then(() => this.showModal())
       .catch(function(error) {
         console.log(error);
       });
@@ -199,10 +200,7 @@ class App extends React.Component {
         <div>{this.state.endTime}</div>
 
         <ButtonToolbar>
-          <Button
-            variant="primary"
-            onClick={() => this.setState({ modalShow: true })}
-          >
+          <Button variant="primary" onClick={() => this.makeMongoCall()}>
             {this.state.dataSaved ? (
               <span> Launch Batman {this.state.score} </span>
             ) : (
@@ -215,11 +213,7 @@ class App extends React.Component {
               show={this.state.modalShow}
               onHide={() => this.setState({ modalShow: false })}
               reset={this.reset}
-              name={this.state.scorelist[this.state.scorelist.length - 1].name}
-              score={
-                this.state.scorelist[this.state.scorelist.length - 1].score
-              }
-              time={this.state.scorelist[this.state.scorelist.length - 1].time}
+              arrayName={this.state.scorelist}
             />
           ) : null}
         </ButtonToolbar>
