@@ -12,6 +12,8 @@ const Footer = props =>
         reset={props.reset}
         modal={props.modal}
         dataSave={props.dataSave}
+        callData={props.callData}
+        showModal={props.showModal}
       />
     </div>
   ) : (

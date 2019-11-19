@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
 
+import axios from "axios";
+
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
@@ -35,29 +37,6 @@ function shuffle(array) {
   return array;
 }
 
-function Applet(props) {
-  const [modalShow, setModalShow] = React.useState(false);
-
-  return (
-    <ButtonToolbar>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        {props.dataSaved ? (
-          <span> Launch Batman {props.score} </span>
-        ) : (
-          <span> Launch Superman </span>
-        )}
-      </Button>
-
-      <Scoreboard
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        reset={props.reset}
-        score={props.score}
-      />
-    </ButtonToolbar>
-  );
-}
-
 class App extends React.Component {
   state = {
     superbats: shuffle(superbats),
@@ -71,7 +50,9 @@ class App extends React.Component {
     show: "",
     released: "",
     endGame: false,
-    dataSaved: false
+    dataSaved: false,
+    modalShow: false,
+    scorelist: []
   };
 
   reset = () => {
@@ -89,6 +70,10 @@ class App extends React.Component {
 
   dataSave = () => {
     this.setState({ dataSaved: true });
+  };
+
+  showModal = () => {
+    this.setState({ modalShow: true });
   };
 
   onMouseEnter = id => {
@@ -171,6 +156,19 @@ class App extends React.Component {
     });
   };
 
+  makeMongoCall = () => {
+    axios
+      .get("/scoreboard")
+      .then(response => {
+        console.log(response);
+        this.setState({ scorelist: response.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    console.log("Heya");
+  };
+
   render() {
     return (
       <div className="App">
@@ -194,14 +192,37 @@ class App extends React.Component {
           ended={this.state.endGame}
           reset={this.reset}
           dataSave={this.dataSave}
+          callData={this.makeMongoCall}
+          showModal={this.showModal}
         />
         {this.state.startTime}
         <div>{this.state.endTime}</div>
-        <Applet
-          score={this.state.score}
-          dataSaved={this.state.dataSaved}
-          reset={this.reset}
-        />
+
+        <ButtonToolbar>
+          <Button
+            variant="primary"
+            onClick={() => this.setState({ modalShow: true })}
+          >
+            {this.state.dataSaved ? (
+              <span> Launch Batman {this.state.score} </span>
+            ) : (
+              <span> Launch Superman </span>
+            )}
+          </Button>
+
+          {this.state.scorelist.length ? (
+            <Scoreboard
+              show={this.state.modalShow}
+              onHide={() => this.setState({ modalShow: false })}
+              reset={this.reset}
+              name={this.state.scorelist[this.state.scorelist.length - 1].name}
+              score={
+                this.state.scorelist[this.state.scorelist.length - 1].score
+              }
+              time={this.state.scorelist[this.state.scorelist.length - 1].time}
+            />
+          ) : null}
+        </ButtonToolbar>
       </div>
     );
   }

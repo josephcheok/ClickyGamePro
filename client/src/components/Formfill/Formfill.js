@@ -41,21 +41,11 @@ class Formfill extends React.Component {
           email: ""
         });
         this.props.dataSave();
-        // this.props.reset();
-      });
-  };
-
-  makeMongoCall = event => {
-    event.preventDefault();
-    axios
-      .get("/scoreboard")
-      .then(function(response) {
-        console.log(response);
+        this.props.callData();
       })
-      .catch(function(error) {
-        console.log(error);
+      .then(() => {
+        this.props.showModal();
       });
-    console.log("Heya");
   };
 
   render() {
@@ -102,7 +92,6 @@ class Formfill extends React.Component {
             Submit
           </button>
         </form>
-        <button onClick={this.makeMongoCall}>GET DATA</button>
       </div>
     );
   }

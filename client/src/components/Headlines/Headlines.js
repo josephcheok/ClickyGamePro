@@ -2,6 +2,7 @@ import React from "react";
 import "./Headlines.css";
 import Facebook from "../Facebook";
 import "../Facebook/Facebook.css";
+import axios from "axios";
 
 const Headlines = props => (
   <div className="flexContainer">
