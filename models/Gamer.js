@@ -13,9 +13,8 @@ var GamerSchema = new Schema(
       required: true
     },
 
-    state: {
+    company: {
       type: String,
-      enum: ["ACT", "NSW", "NT", "QLD", "TAS", "VIC", "WA"],
       required: true
     },
     // `link` is required and of type String

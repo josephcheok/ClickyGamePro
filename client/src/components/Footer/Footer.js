@@ -19,7 +19,12 @@ const Footer = props =>
   ) : (
     <div className="footer">
       <h5>
-        LAST WINNER: <span>{props.name || "JASON DERULO, NSW"}</span>
+        TOP SCORER:{" "}
+        <span className="lastWinner">
+          {props.topScorerName || "Joseph Cheok"}
+        </span>
+        <span className="comma">,</span>{" "}
+        <span className="lastWinner"> {props.topScorerComp || "VIC"}</span>
       </h5>
     </div>
   );

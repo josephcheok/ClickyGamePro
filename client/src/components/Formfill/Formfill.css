@@ -13,7 +13,7 @@ body {
 }
 
 .form-inline label {
-  margin: 5px 10px 5px 100px;
+  margin: 5px 10px 5px 50px;
 }
 
 .form-inline input {
@@ -34,6 +34,19 @@ body {
 
 .form-inline button:hover {
   background-color: royalblue;
+}
+
+.formFill {
+  font-size: 0.8rem;
+}
+
+.formSubmit {
+  background-color: black !important;
+}
+
+.formSubmit:hover {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 1) !important;
+  font-size: 0.82rem;
 }
 
 @media (max-width: 800px) {

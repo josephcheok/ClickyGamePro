@@ -1,6 +1,5 @@
 import React from "react";
 import "./Scoreboard.css";
-import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -20,18 +19,22 @@ const Scoreboard = props => {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Score</th>
-              <th>Time</th>
+              <th className="t-rank">Rank </th>
+              <th className="t-name">Name</th>
+              <th className="t-comp">Company</th>
+              <th className="t-score">Score</th>
+              <th className="t-time">Time&#40;s&#41;</th>
             </tr>
           </thead>
           <tbody>
-            {props.arrayName.map(n => {
+            {props.arrayName.map((n, i) => {
               return (
                 <tr key={n.id} id={n.id}>
+                  <td className="t-data">{i + 1}</td>
                   <td>{n.name}</td>
-                  <td>{n.score}</td>
-                  <td>{n.time}</td>
+                  <td className="t-comp">{n.company}</td>
+                  <td className="t-data">{n.score}</td>
+                  <td className="t-data">{n.time}</td>
                 </tr>
               );
             })}

@@ -9,7 +9,7 @@ h5 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 64px;
   width: 100vw;
 }
 
@@ -20,4 +20,14 @@ h5 {
 
 .scorer {
   margin-left: 10px;
+}
+
+.leaderButton {
+  margin-left: 20px;
+  background-color: black !important;
+  border-color: darkgrey !important;
+}
+
+.leaderButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 1) !important;
 }

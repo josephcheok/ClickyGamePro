@@ -1,10 +1,10 @@
 .container {
   border: 2px white solid;
-  width: 99.6vw;
+  max-width: 99.6vw;
   height: 40px;
   line-height: 26px;
   margin-block-end: 40px;
-  margin-top: -16px;
+  margin-top: 34px;
 }
 
 ul {
@@ -22,7 +22,7 @@ li span {
   display: inline-block;
   font-size: 16px;
   padding-left: 10px;
-  color: lightgrey;
+  color: orange;
 }
 
 li.released {
@@ -34,7 +34,7 @@ li.actor {
 }
 
 li.show {
-  width: 750px;
+  width: 700px;
 }
 
 li.score {

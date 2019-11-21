@@ -7,7 +7,7 @@ import Scoreboard from "../Scoreboard";
 class Formfill extends React.Component {
   state = {
     name: "",
-    state: "",
+    company: "",
     email: ""
   };
 
@@ -27,7 +27,7 @@ class Formfill extends React.Component {
     axios
       .post("/winner", {
         name: this.state.name,
-        state: this.state.state,
+        company: this.state.company,
         email: this.state.email,
         score: this.props.score,
         time: this.props.time
@@ -47,7 +47,7 @@ class Formfill extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="formFill">
         <form className="form-inline" action="/action_page.php">
           <label htmlFor="name" style={{ marginLeft: 50 }}>
             NAME:
@@ -61,21 +61,22 @@ class Formfill extends React.Component {
             onChange={this.handleInputChange}
             style={{ width: 300 }}
           />
-          <label htmlFor="state">STATE:</label>
+          <label htmlFor="state">COMPANY:</label>
           <input
             type="text"
-            id="state"
+            id="company"
             placeholder=""
-            name="state"
-            value={this.state.state}
+            name="company"
+            placeholder="Enter Company"
+            value={this.state.company}
             onChange={this.handleInputChange}
-            style={{ width: 100 }}
+            style={{ width: 200 }}
           />
           <label htmlFor="email">EMAIL:</label>
           <input
             type="email"
             id="email"
-            placeholder="Enter email"
+            placeholder="Enter Email"
             name="email"
             value={this.state.email}
             onChange={this.handleInputChange}
@@ -83,10 +84,11 @@ class Formfill extends React.Component {
           />
           <button
             type="submit"
+            className="formSubmit"
             style={{ marginRight: 50 }}
             onClick={this.handleFormSubmit}
           >
-            Submit
+            SUBMIT
           </button>
         </form>
       </div>

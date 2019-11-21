@@ -1,5 +1,12 @@
 .footer {
   background: transparent;
-
   z-index: 99;
+}
+
+.lastWinner {
+  color: orange;
+}
+
+.comma {
+  color: orange;
 }

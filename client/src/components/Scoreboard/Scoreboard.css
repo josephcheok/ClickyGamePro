@@ -1,0 +1,30 @@
+.t-rank {
+  width: 80px;
+  text-align: center;
+}
+
+.t-name {
+  width: 250px;
+}
+
+.t-score {
+  width: 80px;
+  text-align: center;
+}
+
+.t-time {
+  width: 80px;
+  text-align: center;
+}
+
+.t-data {
+  text-align: center;
+}
+
+.t-comp {
+  width: 200px;
+}
+
+th {
+  color: orange;
+}

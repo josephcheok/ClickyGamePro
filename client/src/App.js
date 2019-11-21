@@ -4,7 +4,7 @@ import "./App.css";
 import axios from "axios";
 
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 import Headlines from "./components/Headlines";
@@ -52,7 +52,9 @@ class App extends React.Component {
     endGame: false,
     dataSaved: false,
     modalShow: false,
-    scorelist: []
+    scorelist: [],
+    topScorerName: "",
+    topScorerComp: ""
   };
 
   reset = () => {
@@ -74,6 +76,10 @@ class App extends React.Component {
 
   showModal = () => {
     this.setState({ modalShow: true });
+  };
+
+  hideModal = () => {
+    this.setState({ modalShow: false });
   };
 
   onMouseEnter = id => {
@@ -163,7 +169,13 @@ class App extends React.Component {
         console.log(response);
         this.setState({ scorelist: response.data });
       })
-      .then(() => this.showModal())
+      .then(() => {
+        this.showModal();
+        this.setState({
+          topScorerName: this.state.scorelist[0].name,
+          topScorerComp: this.state.scorelist[0].company
+        });
+      })
       .catch(function(error) {
         console.log(error);
       });
@@ -175,7 +187,14 @@ class App extends React.Component {
       <div className="App">
         <header className="custom-header"></header>
         <div className="App-header">
-          <Headlines />
+          <Headlines
+            modalShow={this.showModal}
+            modalHide={this.hideModal}
+            reset={this.reset}
+            callback={this.makeMongoCall}
+            arrayName={this.state.scorelist}
+            isModalShown={this.state.modalShow}
+          />
           <Panel newState={this.state} />
           <br></br>
           <Card
@@ -186,37 +205,19 @@ class App extends React.Component {
             onMouseEnter={this.onMouseEnter}
             onMouseLeave={this.onMouseLeave}
           />
+
+          <Footer
+            score={this.state.score}
+            time={this.state.completionTime}
+            ended={this.state.endGame}
+            reset={this.reset}
+            dataSave={this.dataSave}
+            callData={this.makeMongoCall}
+            showModal={this.showModal}
+            topScorerName={this.state.topScorerName}
+            topScorerComp={this.state.topScorerComp}
+          />
         </div>
-        <Footer
-          score={this.state.score}
-          time={this.state.completionTime}
-          ended={this.state.endGame}
-          reset={this.reset}
-          dataSave={this.dataSave}
-          callData={this.makeMongoCall}
-          showModal={this.showModal}
-        />
-        {this.state.startTime}
-        <div>{this.state.endTime}</div>
-
-        <ButtonToolbar>
-          <Button variant="primary" onClick={() => this.makeMongoCall()}>
-            {this.state.dataSaved ? (
-              <span> Launch Batman {this.state.score} </span>
-            ) : (
-              <span> Launch Superman </span>
-            )}
-          </Button>
-
-          {this.state.scorelist.length ? (
-            <Scoreboard
-              show={this.state.modalShow}
-              onHide={() => this.setState({ modalShow: false })}
-              reset={this.reset}
-              arrayName={this.state.scorelist}
-            />
-          ) : null}
-        </ButtonToolbar>
       </div>
     );
   }

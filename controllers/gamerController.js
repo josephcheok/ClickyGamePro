@@ -31,6 +31,8 @@ router.post("/winner", function(req, res) {
 
 router.get("/scoreboard", function(req, res) {
   db.Gamer.find({})
+    .limit(10)
+    .sort({ score: "desc", time: "asc" })
     .then(function(dbGamer) {
       res.json(dbGamer);
       console.log(dbGamer);

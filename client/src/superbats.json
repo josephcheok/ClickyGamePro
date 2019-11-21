@@ -3,7 +3,7 @@
     "id": 1,
     "actor": "Adam West",
     "show": "Batman",
-    "image": "../images/Batman - AW1.jpg",
+    "image": "../images/Batman-AW1.jpg",
     "released": "Jan 1966",
     "clicked": false
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "actor": "Ben Affleck",
     "show": "Justice League",
-    "image": "../images/Batman - BA1.png",
+    "image": "../images/Batman-BA1.png",
     "released": "Mar 2016",
     "clicked": false
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "actor": "Ben Affleck",
     "show": "Batman vs Superman: Dawn of Justice",
-    "image": "../images/Batman - BA2.png",
+    "image": "../images/Batman-BA2.png",
     "released": "Nov 2017",
     "clicked": false
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "actor": "Christian Bale",
     "show": "The Dark Knight",
-    "image": "../images/Batman - CB1.jpg",
+    "image": "../images/Batman-CB1.jpg",
     "released": "Jul 2008",
     "clicked": false
   },
@@ -35,7 +35,7 @@
     "id": 5,
     "actor": "Christian Bale",
     "show": "The Dark Knight Rises",
-    "image": "../images/Batman - CB2.jpg",
+    "image": "../images/Batman-CB2.jpg",
     "released": "Jul 2012",
     "clicked": false
   },
@@ -43,7 +43,7 @@
     "id": 6,
     "actor": "Christian Bale",
     "show": "Batman Begins",
-    "image": "../images/Batman - CB5.png",
+    "image": "../images/Batman-CB5.png",
     "released": "Jun 2005",
     "clicked": false
   },
@@ -51,7 +51,7 @@
     "id": 7,
     "actor": "George Clooney",
     "show": "Batman and Robin",
-    "image": "../images/Batman - GC1.jpg",
+    "image": "../images/Batman-GC1.jpg",
     "released": "Jun 1997",
     "clicked": false
   },
@@ -59,7 +59,7 @@
     "id": 8,
     "actor": "Michael Keaton",
     "show": "Batman",
-    "image": "../images/Batman - MK2.jpg",
+    "image": "../images/Batman-MK2.jpg",
     "released": "Aug 1989",
     "clicked": false
   },
@@ -67,7 +67,7 @@
     "id": 9,
     "actor": "Val Kilmer",
     "show": "Batman Forever",
-    "image": "../images/Batman - VK3.jpg",
+    "image": "../images/Batman-VK3.jpg",
     "released": "Jul 1995",
     "clicked": false
   },
@@ -75,7 +75,7 @@
     "id": 10,
     "actor": "Brandon Routh",
     "show": "Superman Returns",
-    "image": "../images/Superman - BR1.jpg",
+    "image": "../images/Superman-BR1.jpg",
     "released": "Jun 2006",
     "clicked": false
   },
@@ -83,7 +83,7 @@
     "id": 11,
     "actor": "Christopher Reeves",
     "show": "Superman IV - The Quest for Peace",
-    "image": "../images/Superman - CR1.jpg",
+    "image": "../images/Superman-CR1.jpg",
     "released": "Dec 1980",
     "clicked": false
   },
@@ -91,7 +91,7 @@
     "id": 12,
     "actor": "Christopher Reeves",
     "show": "Superman",
-    "image": "../images/Superman - CR2.jpg",
+    "image": "../images/Superman-CR2.jpg",
     "released": "Dec 1978",
     "clicked": false
   },
@@ -99,7 +99,7 @@
     "id": 13,
     "actor": "Dean Cain",
     "show": "Lois & Clark: The New Adventures of Superman",
-    "image": "../images/Superman - DC1.jpg",
+    "image": "../images/Superman-DC1.jpg",
     "released": "Sep 1993",
     "clicked": false
   },
@@ -107,7 +107,7 @@
     "id": 14,
     "actor": "Dean Cain",
     "show": "Lois & Clark: The New Adventures of Superman",
-    "image": "../images/Superman - DC2.jpg",
+    "image": "../images/Superman-DC2.jpg",
     "released": "Sep 1993",
     "clicked": false
   },
@@ -115,7 +115,7 @@
     "id": 15,
     "actor": "Henry Cavill",
     "show": "Man of Steel",
-    "image": "../images/Superman - HC1.jpg",
+    "image": "../images/Superman-HC1.jpg",
     "released": "Jun 2013",
     "clicked": false
   },
@@ -123,7 +123,7 @@
     "id": 16,
     "actor": "Henry Cavill",
     "show": "Batman vs Superman: Dawn of Justice",
-    "image": "../images/Superman - HC2.jpg",
+    "image": "../images/Superman-HC2.jpg",
     "released": "Mar 2016",
     "clicked": false
   },
@@ -131,7 +131,7 @@
     "id": 17,
     "actor": "Tom Welling",
     "show": "Smallville",
-    "image": "../images/Superman - TW1.png",
+    "image": "../images/Superman-TW1.png",
     "released": "Oct 2001",
     "clicked": false
   },
@@ -139,7 +139,7 @@
     "id": 18,
     "actor": "Tom Welling",
     "show": "Smallville",
-    "image": "../images/Superman - TW2.jpg",
+    "image": "../images/Superman-TW2.jpg",
     "released": "Oct 2001",
     "clicked": false
   }
