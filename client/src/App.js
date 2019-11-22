@@ -194,6 +194,7 @@ class App extends React.Component {
             callback={this.makeMongoCall}
             arrayName={this.state.scorelist}
             isModalShown={this.state.modalShow}
+            score={this.state.score}
           />
           <Panel newState={this.state} />
           <br></br>

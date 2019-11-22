@@ -35,6 +35,11 @@ var vouchers = [
     code: "DISC20A",
     discount: 20,
     expiry: new Date("2019-12-31T23:59:59Z")
+  }),
+  new Voucher({
+    code: "FREETIX",
+    discount: 100,
+    expiry: new Date("2019-12-31T23:59:59Z")
   })
 ];
 

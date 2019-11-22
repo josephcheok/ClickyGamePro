@@ -22,11 +22,16 @@ const Headlines = props => (
         arrayName={props.arrayName}
       />
     ) : null}
+
     <div className="headlines">
-      <h5>
-        CLICK ALL IMAGES ONCE TO WIN A DISCOUNT VOUCHER TO SEE THE NEW BATMAN v
-        SUPERMAN
-      </h5>
+      {props.score === 18 ? (
+        <h5>WELL DONE YOU BLOODY CHAMPION!!</h5>
+      ) : (
+        <h5>
+          CLICK ALL IMAGES ONCE TO WIN A DISCOUNT VOUCHER TO SEE THE NEW BATMAN
+          v SUPERMAN
+        </h5>
+      )}
     </div>
     <Facebook />
   </div>
